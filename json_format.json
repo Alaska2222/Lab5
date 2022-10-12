@@ -1,0 +1,1152 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "LPNU STUDENTS API",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://virtserver.swaggerhub.com/SINDRELLA975/LPNU_STUDENTS/1.0.0",
+      "description": "SwaggerHub API Auto Mocking"
+    }
+  ],
+  "paths": {
+    "/groups/{groupId}": {
+      "get": {
+        "tags": [
+          "Group"
+        ],
+        "summary": "Get all students from group",
+        "operationId": "GetAllStudentsByGroupId",
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "maximum": 217,
+              "minimum": 214,
+              "type": "integer",
+              "example": 216
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully get all students from a group",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/groups/{groupId}/students/{studentId}": {
+      "get": {
+        "tags": [
+          "Group"
+        ],
+        "summary": "Get student by id",
+        "operationId": "GetStudentById",
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "maximum": 217,
+              "minimum": 214,
+              "type": "integer",
+              "example": 216
+            }
+          },
+          {
+            "name": "studentId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully get student",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Student"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Group"
+        ],
+        "summary": "Update information about student",
+        "operationId": "PutStudentById",
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "maximum": 217,
+              "minimum": 214,
+              "type": "integer",
+              "example": 216
+            }
+          },
+          {
+            "name": "studentId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Student"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully updated student",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Student"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Group"
+        ],
+        "summary": "Delete student by id",
+        "operationId": "DeleteStudentById",
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "maximum": 217,
+              "minimum": 214,
+              "type": "integer",
+              "example": 216
+            }
+          },
+          {
+            "name": "studentId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully deleted student",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Student"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/groups": {
+      "post": {
+        "tags": [
+          "Group"
+        ],
+        "summary": "Add new student to a group",
+        "operationId": "AddStudent",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Student"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successfully added student",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Student"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/teacher/{teacherId}/{groupId}": {
+      "get": {
+        "tags": [
+          "Teacher"
+        ],
+        "summary": "Get all marks of a group",
+        "operationId": "GetAllGroupMarks",
+        "parameters": [
+          {
+            "name": "teacherId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "maximum": 217,
+              "minimum": 214,
+              "type": "integer",
+              "example": 216
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully get marks of a group",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_1"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Teacher"
+        ],
+        "summary": "Add mark for every student in a group",
+        "operationId": "MarkAllStudentsInGroup",
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "maximum": 217,
+              "minimum": 214,
+              "type": "integer",
+              "example": 216
+            }
+          },
+          {
+            "name": "teacherId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/teacherId_groupId_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successfully marked a whole group",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Mark"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/teacher/{studentId}": {
+      "post": {
+        "tags": [
+          "Teacher"
+        ],
+        "summary": "Add mark for a student",
+        "operationId": "MarkStudent",
+        "parameters": [
+          {
+            "name": "studentId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Mark"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successfully marked student",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Mark"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/teacher/{studentId}/{markId}": {
+      "put": {
+        "tags": [
+          "Teacher"
+        ],
+        "summary": "Update mark for a student",
+        "operationId": "UpdateMark",
+        "parameters": [
+          {
+            "name": "markId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          },
+          {
+            "name": "studentId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Mark"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successfully updated mark",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Mark"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Teacher"
+        ],
+        "summary": "Delete mark for a student",
+        "operationId": "DeleteMark",
+        "parameters": [
+          {
+            "name": "markId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          },
+          {
+            "name": "studentId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully deleted mark",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Mark"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/teachers": {
+      "get": {
+        "tags": [
+          "Faculty"
+        ],
+        "summary": "Get All teachers",
+        "operationId": "GetAllTeachers",
+        "responses": {
+          "200": {
+            "description": "Successfully get all teachers",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Teacher"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Faculty"
+        ],
+        "summary": "Add teacher",
+        "operationId": "AddTeacher",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Teacher"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successfully added a teacher",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Teacher"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/teachers/{subjectId}": {
+      "get": {
+        "tags": [
+          "Faculty"
+        ],
+        "summary": "Get all teacher by subject id",
+        "operationId": "GetTeachersBySubjectId",
+        "parameters": [
+          {
+            "name": "subjectId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "Databases"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully get all teachers by subject id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_2"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/teachers/{teacherId}": {
+      "get": {
+        "tags": [
+          "Faculty"
+        ],
+        "summary": "Get teacher by id",
+        "operationId": "GetTeacherById",
+        "parameters": [
+          {
+            "name": "teacherId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully get teacher by id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Teacher"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Faculty"
+        ],
+        "summary": "Update information about teacher",
+        "operationId": "UpdateTeacher",
+        "parameters": [
+          {
+            "name": "teacherId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Teacher"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successfully updated teacher's info",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Teacher"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Faculty"
+        ],
+        "summary": "Delete teacher by id",
+        "operationId": "DeteteTeacher",
+        "parameters": [
+          {
+            "name": "teacherId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully deleted teacher",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Teacher"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/students/{subjectid}": {
+      "get": {
+        "tags": [
+          "Students"
+        ],
+        "summary": "Get marks by subject id",
+        "operationId": "GetMarksFromSubject",
+        "parameters": [
+          {
+            "name": "subjectid",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "Databases"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully get all marks from a subject",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Mark"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/students/{subjectid}/{markId}": {
+      "get": {
+        "tags": [
+          "Students"
+        ],
+        "summary": "Get a specfic mark",
+        "operationId": "GetMark",
+        "parameters": [
+          {
+            "name": "subjectid",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "Databases"
+            }
+          },
+          {
+            "name": "markId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully get a specific mark",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Mark"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/students/{groupId}/{studentID}": {
+      "get": {
+        "tags": [
+          "Students"
+        ],
+        "summary": "Get all marks",
+        "operationId": "GetAllMarks",
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "maximum": 217,
+              "minimum": 214,
+              "type": "integer",
+              "example": 216
+            }
+          },
+          {
+            "name": "studentID",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully get all marks",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Group/properties/marks"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Student": {
+        "type": "object",
+        "properties": {
+          "studentId": {
+            "type": "integer",
+            "example": 1
+          },
+          "Firstname": {
+            "type": "string",
+            "example": "Kornelia"
+          },
+          "Surname": {
+            "type": "string",
+            "example": "Drozd"
+          },
+          "groupId": {
+            "maximum": 217,
+            "minimum": 214,
+            "type": "integer",
+            "example": 216
+          }
+        }
+      },
+      "Teacher": {
+        "type": "object",
+        "properties": {
+          "teacherId": {
+            "type": "integer",
+            "example": 1
+          },
+          "Firstname": {
+            "type": "string",
+            "example": "Petro"
+          },
+          "Surname": {
+            "type": "string",
+            "example": "Pukach"
+          },
+          "groupId": {
+            "maximum": 217,
+            "minimum": 214,
+            "type": "integer",
+            "example": 216
+          },
+          "subjectId": {
+            "type": "integer"
+          }
+        }
+      },
+      "Subject": {
+        "type": "object",
+        "properties": {
+          "subjectId": {
+            "type": "string",
+            "example": "Theory of Probability"
+          },
+          "name": {
+            "type": "string",
+            "example": "1",
+            "enum": [
+              "Theory of Probability",
+              "Databases",
+              "Programming",
+              "Operational Systems"
+            ]
+          }
+        }
+      },
+      "Mark": {
+        "type": "object",
+        "properties": {
+          "markId": {
+            "type": "integer",
+            "example": 1
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "value": {
+            "type": "number",
+            "format": "float",
+            "example": 4.5
+          },
+          "subjectId": {
+            "type": "string"
+          },
+          "studentId": {
+            "type": "integer",
+            "example": 1
+          },
+          "teacherId": {
+            "type": "integer",
+            "example": 1
+          }
+        }
+      },
+      "Group": {
+        "type": "object",
+        "properties": {
+          "groupId": {
+            "maximum": 217,
+            "minimum": 214,
+            "type": "integer",
+            "example": 216
+          },
+          "quantity": {
+            "type": "integer"
+          },
+          "students": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Student"
+            }
+          },
+          "marks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Mark"
+            }
+          }
+        }
+      },
+      "Error": {
+        "required": [
+          "code",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "inline_response_200": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Group/properties/students"
+          }
+        ]
+      },
+      "inline_response_200_1": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Group/properties/marks"
+          }
+        ]
+      },
+      "teacherId_groupId_body": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Group/properties/marks"
+          }
+        ]
+      },
+      "inline_response_200_2": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Teacher"
+          }
+        ]
+      }
+    }
+  }
+}
